@@ -1,0 +1,27 @@
+.info-container {
+  @apply bg-white p-6 rounded-lg shadow-md;
+}
+
+.info-title {
+  @apply text-2xl font-semibold text-gray-800 mb-4;
+}
+
+.info-error {
+  @apply text-red-500 mb-4;
+}
+
+.info-form {
+  @apply space-y-4;
+}
+
+.info-input {
+  @apply w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.info-button {
+  @apply w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700 disabled:bg-gray-400;
+}
+
+.info-result {
+  @apply mt-4;
+}

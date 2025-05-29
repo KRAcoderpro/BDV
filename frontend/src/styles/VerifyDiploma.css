@@ -1,0 +1,31 @@
+.verify-container {
+  @apply bg-white p-6 rounded-lg shadow-md;
+}
+
+.verify-title {
+  @apply text-2xl font-semibold text-gray-800 mb-4;
+}
+
+.verify-error {
+  @apply text-red-500 mb-4;
+}
+
+.verify-form {
+  @apply space-y-4;
+}
+
+.verify-input {
+  @apply w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.verify-button {
+  @apply w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700 disabled:bg-gray-400;
+}
+
+.verify-valid {
+  @apply text-green-600;
+}
+
+.verify-invalid {
+  @apply text-red-600;
+}
