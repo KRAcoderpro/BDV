@@ -1,24 +1,6 @@
-export const contractAddress = '0x8A791620dd6260079BF849Dc5567aDC3F2FdC318'; // Замените на адрес развернутого контракта
+export const contractAddress = '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512'; // Замените на адрес развернутого контракта
 
 export const contractABI = [
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "university",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "name",
-				"type": "string"
-			}
-		],
-		"name": "authorizeUniversity",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
@@ -67,60 +49,6 @@ export const contractABI = [
 		],
 		"name": "DiplomaRevoked",
 		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "bytes32",
-				"name": "hash",
-				"type": "bytes32"
-			},
-			{
-				"internalType": "string",
-				"name": "studentId",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "diplomaType",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "ipfsHash",
-				"type": "string"
-			}
-		],
-		"name": "registerDiploma",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "bytes32",
-				"name": "hash",
-				"type": "bytes32"
-			}
-		],
-		"name": "revokeDiploma",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "university",
-				"type": "address"
-			}
-		],
-		"name": "revokeUniversity",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	},
 	{
 		"anonymous": false,
@@ -174,6 +102,19 @@ export const contractABI = [
 		"type": "event"
 	},
 	{
+		"inputs": [],
+		"name": "admin",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -186,22 +127,9 @@ export const contractABI = [
 				"type": "string"
 			}
 		],
-		"name": "updateUniversityName",
+		"name": "authorizeUniversity",
 		"outputs": [],
 		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "admin",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -312,6 +240,19 @@ export const contractABI = [
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "getUniversityDiplomas",
+		"outputs": [
+			{
+				"internalType": "bytes32[]",
+				"name": "",
+				"type": "bytes32[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -333,6 +274,60 @@ export const contractABI = [
 	{
 		"inputs": [
 			{
+				"internalType": "bytes32",
+				"name": "hash",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "string",
+				"name": "studentId",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "diplomaType",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "ipfsHash",
+				"type": "string"
+			}
+		],
+		"name": "registerDiploma",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "hash",
+				"type": "bytes32"
+			}
+		],
+		"name": "revokeDiploma",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "university",
+				"type": "address"
+			}
+		],
+		"name": "revokeUniversity",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "address",
 				"name": "",
 				"type": "address"
@@ -347,6 +342,24 @@ export const contractABI = [
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "university",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			}
+		],
+		"name": "updateUniversityName",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{

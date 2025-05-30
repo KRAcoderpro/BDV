@@ -70,13 +70,19 @@ const DiplomaInfo = ({ contract }) => {
             <p><strong>ID студента:</strong> {info.studentId}</p>
             <p><strong>Тип диплома:</strong> {info.diplomaType}</p>
             <p><strong>Дата регистрации:</strong> {new Date(info.timestamp * 1000).toLocaleString()}</p>
-            <p><strong>Статус:</strong> {info.isValid ? 'Действителен' : 'Отозван'}</p>
+            <p>
+              <strong>Статус:</strong>{' '}
+              <span className={info.isValid ? 'text-green-600 font-semibold' : 'text-red-600 font-semibold'}>
+                {info.isValid ? 'Действителен' : 'Отозван'}
+              </span>
+            </p>
             <p>
               <strong>Файл диплома:</strong>{' '}
               <a
                 href={`https://ipfs.io/ipfs/${info.ipfsHash}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="inline-block mt-1 px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
               >
                 Скачать
               </a>

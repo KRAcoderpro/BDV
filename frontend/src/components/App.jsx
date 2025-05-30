@@ -4,6 +4,7 @@ import ManageUniversities from './ManageUniversities';
 import RegisterDiploma from './RegisterDiploma';
 import VerifyDiploma from './VerifyDiploma';
 import DiplomaInfo from './DiplomaInfo';
+import UniversityDiplomas from './UniversityDiplomas';
 import { contractAddress, contractABI } from '../utils/contract';
 import logo from '../assets/BDV_logo.png';
 import { parseError } from '../utils/parseError';
@@ -148,6 +149,7 @@ const App = () => {
           <div className="space-y-6">
             {isAdmin && <ManageUniversities contract={contract} />}
             {(isAuthorized || isAdmin) && <RegisterDiploma contract={contract} />}
+            {isAuthorized && <UniversityDiplomas contract={contract} account={account} />}
             <VerifyDiploma contract={contract} />
             <DiplomaInfo contract={contract} />
           </div>
