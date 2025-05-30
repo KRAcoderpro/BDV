@@ -6,6 +6,7 @@ import VerifyDiploma from './VerifyDiploma';
 import DiplomaInfo from './DiplomaInfo';
 import { contractAddress, contractABI } from '../utils/contract';
 import logo from '../assets/BDV_logo.png';
+import { parseError } from '../utils/parseError';
 
 const App = () => {
   const [contract, setContract] = useState(null);
@@ -31,7 +32,7 @@ const App = () => {
       }
     } catch (err) {
       console.error('Ошибка проверки прав доступа:', err);
-      setError('Ошибка проверки прав доступа: ' + (err.reason || err.message));
+      setError(parseError('Ошибка проверки прав доступа', err));
     }
   };
 
@@ -56,8 +57,7 @@ const App = () => {
 
         await checkAccess(contractInstance, address);
       } catch (err) {
-        console.error('Ошибка при инициализации:', err);
-        setError('Ошибка подключения к MetaMask: ' + (err.reason || err.message));
+        setError(parseError('Ошибка подключения к MetaMask', err));
       } finally {
         setLoading(false);
       }
@@ -84,7 +84,7 @@ const App = () => {
           await checkAccess(newContract, address);
         } catch (err) {
           console.error('Ошибка при смене аккаунта:', err);
-          setError('Ошибка при смене аккаунта: ' + (err.reason || err.message));
+          setError(parseError('Ошибка при смене аккаунта', err));
         }
       }
     };
