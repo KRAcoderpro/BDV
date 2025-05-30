@@ -14,6 +14,8 @@ contract DiplomaRegistry {
     mapping(bytes32 => Diploma) public diplomas;
     mapping(address => bool) public authorizedUniversities;
     mapping(address => string) public universityNames;
+    mapping(address => bytes32[]) private universityDiplomas;
+
 
     address public admin;
 
@@ -85,7 +87,16 @@ contract DiplomaRegistry {
         );
 
         emit DiplomaRegistered(hash, university, studentId, block.timestamp);
+        universityDiplomas[msg.sender].push(hash);
+        
     }
+
+    function getUniversityDiplomas() external view returns (bytes32[] memory) {
+        require(authorizedUniversities[msg.sender], "Only authorized universities");
+        return universityDiplomas[msg.sender];
+    }
+
+
 
     function revokeDiploma(bytes32 hash) external onlyAuthorized {
         require(diplomas[hash].timestamp != 0, "Diploma not found");
