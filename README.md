@@ -48,10 +48,16 @@ BDV состоит из следующих компонентов:
 - **База данных Web2** — временное кэширование информации (для UX).
 
 ### 3.4 Функции смарт-контракта:
-
-- `registerDiploma(bytes32 hash, string memory universityName)` — регистрация документа.
-- `verifyDiploma(bytes32 hash)` — проверка наличия диплома в сети.
-- `getDiploma(bytes32 hash)` — получение информации о вузе и времени регистрации.
+#### Регистрация и управление дипломами:
+- registerDiploma(bytes32 hash, string studentId, string diplomaType, string ipfsHash) - регистрация нового диплома.
+- revokeDiploma(bytes32 hash) — отзыв диплома (пометка о недействительности).
+#### Проверка и получение информации:
+- verifyDiploma(bytes32 hash) → bool - проверка регистрации диплома
+- etUniversityName(address university) → string - получение информации об университете по его адресу
+#### Управление университетами (для администратора):
+- authorizeUniversity(address university, string name) - добавление университета в список авторизованных
+- updateUniversityName(address university, string name) - обновление названия университета
+- revokeUniversity(address university) - удаление университета из списка авторизованных
 
 ### 3.5 Хранение данных:
 
